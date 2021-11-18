@@ -1,5 +1,13 @@
 # SushiSwap Subgraph
 
+## Setup
+
+- configure chain on ./config files
+- `cd subgraphs/exchange`
+- `yarn run codegen && yarn run build && yarn run deploy:matic`
+
+## Info
+
 Aims to deliver analytics & historical data for SushiSwap. Still a work in progress. Feel free to contribute!
 
 The Graph exposes a GraphQL endpoint to query the events and entities within the SushiSwap ecosytem.
