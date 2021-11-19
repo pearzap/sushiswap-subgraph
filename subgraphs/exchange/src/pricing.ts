@@ -36,32 +36,28 @@ export function getSushiPrice(): BigDecimal {
 }
 
 export function getEthPrice(block: ethereum.Block = null): BigDecimal {
-  // TODO: We can can get weighted averages, but this will do for now.
-  // If block number is less than or equal to the last stablecoin migration (ETH-USDT), use uniswap eth price.
-  // After this last migration, we can use sushiswap pricing.
-  /*if (block !== null && block.number.le(BigInt.fromI32(10829344))) {
-    // Uniswap Factory
-    const uniswapFactory = FactoryContract.bind(Address.fromString('0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f'))
 
-    // ETH-USDT
-    const ethUsdtPair = uniswapFactory.getPair(
-      Address.fromString('0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'),
-      Address.fromString('0xdac17f958d2ee523a2206206994597c13d831ec7')
-    )
+  // Sushiswap Factory
+  const uniswapFactory = FactoryContract.bind(Address.fromString('0xc35dadb65012ec5796536bd9864ed8773abc74c4'))
 
-    const ethUsdtPairContract = PairContract.bind(ethUsdtPair)
+  // ETH-USDT
+  const ethUsdtPair = uniswapFactory.getPair(
+    Address.fromString('0x7ceb23fd6bc0add59e62ac25578270cff1b9f619'),
+    Address.fromString('0xc2132d05d31c914a87c6611c10748aeb04b58e8f')
+  )
 
-    const ethUsdtReserves = ethUsdtPairContract.getReserves()
+  const ethUsdtPairContract = PairContract.bind(ethUsdtPair)
 
-    // TODO: Find out why I'm dividing by 1,000,000... (Oh, probably because USDT?)
-    const ethPrice = ethUsdtReserves.value1
-      .toBigDecimal()
-      .times(BIG_DECIMAL_1E18)
-      .div(ethUsdtReserves.value0.toBigDecimal())
-      .div(BigDecimal.fromString('1000000'))
+  const ethUsdtReserves = ethUsdtPairContract.getReserves()
 
-    return ethPrice
-  }*/
+  // TODO: Find out why I'm dividing by 1,000,000... (Oh, probably because USDT?)
+  const ethPrice = ethUsdtReserves.value1
+    .toBigDecimal()
+    .times(BIG_DECIMAL_1E18)
+    .div(ethUsdtReserves.value0.toBigDecimal())
+    .div(BigDecimal.fromString('1000000'))
+
+  return ethPrice
 
   // fetch eth prices for each stablecoin
   const daiPair = Pair.load(DAI_WETH_PAIR)
