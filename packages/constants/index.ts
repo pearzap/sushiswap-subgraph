@@ -106,11 +106,11 @@ export const SUSHI_USDT_PAIR =
 
 // minimum liquidity required to count towards tracked volume for pairs with small # of Lps
 export const MINIMUM_USD_THRESHOLD_NEW_PAIRS = BigDecimal.fromString(
-  '3000'
+  '1000'
 )
 
 // minimum liquidity for price to get tracked
-export const MINIMUM_LIQUIDITY_THRESHOLD_ETH = BigDecimal.fromString('3')
+export const MINIMUM_LIQUIDITY_THRESHOLD_ETH = BigDecimal.fromString('0.3')
 
 export const WETH_ADDRESS = Address.fromString(
   '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619'
@@ -177,7 +177,7 @@ export const USDT = '0xc2132d05d31c914a87c6611c10748aeb04b58e8f'
 
 export const DAI = '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063'
 
-export const WHITELIST: string[] = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619,0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270,0x2791bca1f2de4661ed88a30c99a7a9449aa84174,0x8f3cf7ad23cd3cadbd9735aff958023239c6a063,0xc2132d05d31c914a87c6611c10748aeb04b58e8f,0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6,0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a,0xd6df932a45c0f255f85145f286ea0b292b21c90b,0x104592a158490a9228070e0a8e5343b499e125d0'.split(',')
+export const WHITELIST: string[] = '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619,0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270,0x2791bca1f2de4661ed88a30c99a7a9449aa84174,0x8f3cf7ad23cd3cadbd9735aff958023239c6a063,0xc2132d05d31c914a87c6611c10748aeb04b58e8f,0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6,0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a,0xd6df932a45c0f255f85145f286ea0b292b21c90b,0x104592a158490a9228070e0a8e5343b499e125d0,0xc8bcb58caEf1bE972C0B638B1dD8B0748Fdc8A44,0x285209dd294fb6763740e1c92d654d92eaaadf22'.split(',')
 
 // export const WHITELIST: string[] = [
 //   "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
